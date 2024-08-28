@@ -2,7 +2,7 @@
 
 # SSH-Zugangsdaten
 REMOTE_USER="root"
-REMOTE_HOST="217.160.162.190"
+REMOTE_HOST="xxx.xxx.xxx.xxx"
 REMOTE_PATHS=(
     "/home/root/docker/Nextcloudlife"
     "/home/root/docker/bludit"
