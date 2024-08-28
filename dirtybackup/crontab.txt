@@ -1,0 +1,2 @@
+# Führe das Backup-Skript täglich um 0 Uhr aus
+0 0 * * * /usr/local/bin/backup.sh >> /var/log/backup.log 2>&1
