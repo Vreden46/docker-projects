@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 
 # SSH-Zugangsdaten
@@ -18,6 +20,22 @@ ssh -i /root/.ssh/id_rsa "$REMOTE_USER@$REMOTE_HOST" \
 
 # Lokales Verzeichnis für Backups
 LOCAL_BACKUP_DIR="/shared/webserver"
+
+# Erstellen von tar.gz-Archiven auf dem Remote-Server
+#echo "Compressing directories on $REMOTE_HOST..."
+#for REMOTE_PATH in "${REMOTE_PATHS[@]}"; do
+    #REMOTE_BASENAME=$(basename "$REMOTE_PATH")
+    #ssh -i /root/.ssh/id_rsa "$REMOTE_USER@$REMOTE_HOST" \
+        #"tar -czf /tmp/${REMOTE_BASENAME}.tar.gz -C $(dirname "$REMOTE_PATH") $REMOTE_BASENAME"
+#done
+
+## Übertragung der komprimierten Dateien
+#echo "Transferring compressed files..."
+#for REMOTE_PATH in "${REMOTE_PATHS[@]}"; do
+    #REMOTE_BASENAME=$(basename "$REMOTE_PATH")
+    #rsync -avz --no-owner --no-group -e "ssh -i /root/.ssh/id_rsa" "$REMOTE_USER@$REMOTE_HOST:/tmp/${REMOTE_BASENAME}.tar.gz" "$LOCAL_BACKUP_DIR"
+#done
+
 
 # Sicherung durchführen
 for REMOTE_PATH in "${REMOTE_PATHS[@]}"; do
